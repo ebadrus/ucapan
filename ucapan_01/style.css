@@ -29,7 +29,6 @@ body {
 
 .decor {
   position: absolute;
-  width: clamp(90px, 12vw, 160px);
   opacity: 0.9;
   animation: sway 4s ease-in-out infinite;
   z-index: 2;
@@ -38,14 +37,27 @@ body {
 .decor-left {
   left: 10%;
   top: -4%;
+  width: clamp(90px, 12vw, 160px);
   transform: translateX(-50%);
   animation: sway-center 4s ease-in-out infinite;
 }
 
 .decor-right {
-  right: 3%;
-  top: -15%;
+  right: -7%;
+  top: -40%;
+  width: clamp(130px, 22vw, 180px);
   animation-delay: 1.3s;
+}
+
+.ornament-bottom {
+  position: absolute;
+  left: 50%;
+  bottom: -3.2rem;
+  width: clamp(230px, 28vw, 330px);
+  opacity: 0.27;
+  transform: translateX(-50%);
+  animation: ornament-spin 16s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .content {
@@ -113,6 +125,12 @@ figcaption {
   50% { transform: translateX(-50%) translateY(12px) rotate(3deg); }
 }
 
+@keyframes ornament-spin {
+  0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+  50% { transform: translateX(-50%) rotate(180deg) scale(1.03); }
+  100% { transform: translateX(-50%) rotate(360deg) scale(1); }
+}
+
 @keyframes rise {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: translateY(0); }
@@ -120,5 +138,6 @@ figcaption {
 
 @media (max-width: 640px) {
   .decor { opacity: 0.6; }
+  .ornament-bottom { opacity: 0.18; }
   .content { border-radius: 18px; }
 }

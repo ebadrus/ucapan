@@ -58,6 +58,7 @@ p {
 
 figure {
   margin-top: 1rem;
+  position: relative;
 }
 
 figure img {
@@ -68,25 +69,49 @@ figure img {
   border: 4px solid rgba(242, 184, 75, 0.7);
 }
 
+figure img.ketupat {
+  width: clamp(100px, 23vw, 230px);
+  max-height: none;
+  position: absolute;
+  right: clamp(-10px, -2vw, -4px);
+  bottom: clamp(-35px, -5.2vw, -25px);
+  border: 0;
+  border-radius: 0;
+  z-index: 3;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 8px 14px rgba(0, 0, 0, 0.45));
+}
+
 .ornament,
-.ketupat {
+.lantern {
   position: absolute;
   pointer-events: none;
 }
 
 .ornament {
-  width: clamp(120px, 18vw, 240px);
-  left: -1.5rem;
-  bottom: -1.5rem;
-  opacity: 0.2;
-  animation: pulse 3.2s ease-in-out infinite;
+  width: clamp(320px, 46vw, 410px);
+  left: 50%;
+  bottom: -2.9rem;
+  opacity: 0.22;
+  transform: translateX(-50%);
+  animation: ornament-spin 16s ease-in-out infinite;
 }
 
-.ketupat {
-  width: clamp(95px, 13vw, 140px);
-  right: 3%;
-  top: 7%;
-  animation: float 3s ease-in-out infinite;
+.lantern {
+  width: clamp(90px, 12vw, 150px);
+  opacity: 0.86;
+  animation: sway 4.2s ease-in-out infinite;
+}
+
+.lantern-left {
+  left: 5%;
+  top: -7%;
+}
+
+.lantern-right {
+  right: 5%;
+  top: -7%;
+  animation-delay: 1.2s;
 }
 
 @keyframes pop-in {
@@ -106,7 +131,20 @@ figure img {
   50% { transform: scale(1.05); }
 }
 
+@keyframes sway {
+  0%,
+  100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(10px) rotate(3deg); }
+}
+
+@keyframes ornament-spin {
+  0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+  50% { transform: translateX(-50%) rotate(180deg) scale(1.03); }
+  100% { transform: translateX(-50%) rotate(360deg) scale(1); }
+}
+
 @media (max-width: 600px) {
   .ornament { opacity: 0.14; }
+  .lantern { opacity: 0.6; }
   .text-box { border-radius: 20px; }
 }
