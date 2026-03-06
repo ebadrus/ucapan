@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daftar Ucapan Idul Fitri</title>
+  <style>
+    :root {
+      --bg-1: #0f3e2f;
+      --bg-2: #092d22;
+      --gold: #f2cf74;
+      --ivory: #fff7e0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      color: var(--ivory);
+      background: radial-gradient(circle at top, #1b684f 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 1.25rem;
+      display: grid;
+      place-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card {
+      width: min(560px, 100%);
+      background: rgba(5, 18, 14, 0.45);
+      border: 1px solid rgba(242, 207, 116, 0.35);
+      border-radius: 16px;
+      padding: 1rem;
+      text-align: center;
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 5.2vw, 1.9rem);
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      color: #ffefbe;
+      font-size: 0.95rem;
+    }
+
+    .links {
+      margin-top: 1rem;
+      display: grid;
+      gap: 0.65rem;
+    }
+
+    .links a {
+      display: block;
+      text-decoration: none;
+      color: #102616;
+      background: var(--gold);
+      padding: 0.7rem 0.85rem;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: transform 0.2s ease, filter 0.2s ease;
+    }
+
+    .links a:hover,
+    .links a:focus-visible {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+      outline: none;
+    }
+
+    .ornament-bottom {
+      position: absolute;
+      left: 50%;
+      bottom: -3.2rem;
+      width: clamp(130px, 18vw, 230px);
+      opacity: 0.27;
+      transform: translateX(-50%);
+      animation: ornament-spin 16s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes ornament-spin {
+      0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+      50% { transform: translateX(-50%) rotate(180deg) scale(1.03); }
+      100% { transform: translateX(-50%) rotate(360deg) scale(1); }
+    }
+
+    @media (min-width: 768px) {
+      .card {
+        border-radius: 22px;
+        padding: 1.4rem;
+      }
+
+      .links {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <img class="ornament-bottom" src="ucapan_01/assets/ornament.png" alt="Ornamen bawah" />
+
+    <main class="card">
+      <h1>Pilihan Ucapan Idul Fitri</h1>
+      <p>Pilih salah satu variasi halaman ucapan:</p>
+
+      <nav class="links" aria-label="Daftar variasi ucapan">
+        <a href="ucapan_01/index.html">Buka Ucapan 01</a>
+        <a href="ucapan_02/index.html">Buka Ucapan 02</a>
+        <a href="ucapan_03/index.html">Buka Ucapan 03</a>
+      </nav>
+    </main>
+  </section>
+</body>
+</html>
