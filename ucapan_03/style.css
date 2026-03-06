@@ -1,0 +1,114 @@
+:root {
+  --night: #071630;
+  --night-2: #0a2147;
+  --gold: #f0c974;
+  --light: #fff4d8;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Quicksand", sans-serif;
+  color: var(--light);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.14), transparent 38%),
+    radial-gradient(circle at 84% 14%, rgba(240, 201, 116, 0.25), transparent 36%),
+    linear-gradient(140deg, var(--night), var(--night-2));
+}
+
+.scene {
+  min-height: 100vh;
+  padding: 1.2rem;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bedug {
+  position: absolute;
+  width: clamp(160px, 24vw, 290px);
+  right: clamp(-35px, -1vw, -8px);
+  bottom: clamp(-20px, -2vw, 0);
+  opacity: 0.28;
+  animation: drift 4.5s ease-in-out infinite;
+}
+
+.panel {
+  width: min(950px, 100%);
+  display: grid;
+  gap: 0.75rem;
+  text-align: center;
+  background: rgba(5, 18, 45, 0.66);
+  border: 1px solid rgba(240, 201, 116, 0.4);
+  border-radius: 22px;
+  padding: clamp(1rem, 3.5vw, 2.2rem);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+  animation: fade-up 1s ease both;
+}
+
+.headline {
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.78rem;
+}
+
+h1 {
+  font-family: "Marcellus", serif;
+  font-size: clamp(1.9rem, 4.2vw, 3rem);
+  line-height: 1.2;
+}
+
+p {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+}
+
+.photo-frame {
+  width: min(300px, 85%);
+  margin: 0.8rem auto 0;
+  position: relative;
+}
+
+.photo-frame::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border: 1px dashed rgba(240, 201, 116, 0.8);
+  border-radius: 50%;
+  animation: spin 18s linear infinite;
+}
+
+.photo-frame img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid rgba(240, 201, 116, 0.75);
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes drift {
+  0%,
+  100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 560px) {
+  .bedug { opacity: 0.18; }
+  .panel { border-radius: 18px; }
+}

@@ -1,0 +1,109 @@
+:root {
+  --mint: #e9fff4;
+  --green: #1f7a57;
+  --deep: #0d4b34;
+  --accent: #f2b84b;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Nunito", sans-serif;
+  background:
+    linear-gradient(135deg, rgba(31, 122, 87, 0.2), rgba(242, 184, 75, 0.15)),
+    repeating-linear-gradient(45deg, #f6fff9 0 24px, #eefff5 24px 48px);
+}
+
+.eid-card {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 1.5rem;
+  overflow: hidden;
+}
+
+.text-box {
+  width: min(900px, 100%);
+  background: var(--mint);
+  border: 2px solid rgba(31, 122, 87, 0.25);
+  border-radius: 28px;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(13, 75, 52, 0.15);
+  animation: pop-in 0.9s ease both;
+}
+
+h1 {
+  font-family: "Scheherazade New", serif;
+  color: var(--deep);
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  line-height: 1.12;
+}
+
+p {
+  margin-top: 0.35rem;
+  color: var(--green);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 700;
+}
+
+figure {
+  margin-top: 1rem;
+}
+
+figure img {
+  width: 100%;
+  max-height: 370px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 4px solid rgba(242, 184, 75, 0.7);
+}
+
+.ornament,
+.ketupat {
+  position: absolute;
+  pointer-events: none;
+}
+
+.ornament {
+  width: clamp(120px, 18vw, 240px);
+  left: -1.5rem;
+  bottom: -1.5rem;
+  opacity: 0.25;
+  animation: pulse 3.2s ease-in-out infinite;
+}
+
+.ketupat {
+  width: clamp(95px, 13vw, 140px);
+  right: 3%;
+  top: 7%;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%,
+  100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0%,
+  100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@media (max-width: 600px) {
+  .ornament { opacity: 0.14; }
+  .text-box { border-radius: 20px; }
+}
