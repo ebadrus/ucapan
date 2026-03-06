@@ -32,16 +32,19 @@ body {
   width: clamp(90px, 12vw, 160px);
   opacity: 0.9;
   animation: sway 4s ease-in-out infinite;
+  z-index: 2;
 }
 
 .decor-left {
-  left: 3%;
-  top: -3%;
+  left: 10%;
+  top: -4%;
+  transform: translateX(-50%);
+  animation: sway-center 4s ease-in-out infinite;
 }
 
 .decor-right {
   right: 3%;
-  top: -10%;
+  top: -15%;
   animation-delay: 1.3s;
 }
 
@@ -53,9 +56,11 @@ body {
   background: rgba(5, 18, 14, 0.45);
   border: 1px solid rgba(242, 207, 116, 0.35);
   border-radius: 24px;
-  padding: clamp(1.2rem, 4vw, 2.5rem);
+  padding: clamp(3.8rem, 6vw, 5rem) clamp(1.2rem, 4vw, 2.5rem) clamp(1.2rem, 4vw, 2.5rem);
   backdrop-filter: blur(3px);
   animation: rise 1s ease both;
+  position: relative;
+  z-index: 1;
 }
 
 .tag {
@@ -100,6 +105,12 @@ figcaption {
   0%,
   100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(12px) rotate(3deg); }
+}
+
+@keyframes sway-center {
+  0%,
+  100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+  50% { transform: translateX(-50%) translateY(12px) rotate(3deg); }
 }
 
 @keyframes rise {

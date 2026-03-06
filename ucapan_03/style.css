@@ -30,6 +30,17 @@ body {
   overflow: hidden;
 }
 
+.top-ornament {
+  position: absolute;
+  top: 1.2rem;
+  left: 50%;
+  width: clamp(110px, 17vw, 220px);
+  opacity: 0.38;
+  transform: translateX(-50%);
+  pointer-events: none;
+  animation: ornament-spin 16s ease-in-out infinite;
+}
+
 .bedug {
   position: absolute;
   width: clamp(160px, 24vw, 290px);
@@ -108,7 +119,14 @@ p {
   to { transform: rotate(360deg); }
 }
 
+@keyframes ornament-spin {
+  0% { transform: translateX(-50%) rotate(0deg) scale(1); }
+  50% { transform: translateX(-50%) rotate(180deg) scale(1.04); }
+  100% { transform: translateX(-50%) rotate(360deg) scale(1); }
+}
+
 @media (max-width: 560px) {
+  .top-ornament { opacity: 0.28; }
   .bedug { opacity: 0.18; }
   .panel { border-radius: 18px; }
 }
